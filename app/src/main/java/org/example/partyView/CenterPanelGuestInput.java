@@ -23,13 +23,12 @@ public class CenterPanelGuestInput extends JPanel {
 
   private JComboBox<Countries> cmbCountries;
 
-  private JPanel pnlLeft;  // for labels at left
+  private JPanel pnlLeft; // for labels at left
   private JPanel pnlRight; // for textboxes at right
 
   private Controller controller;
 
-  public CenterPanelGuestInput(Controller controller, int width, int height,
-                               int margin) {
+  public CenterPanelGuestInput(Controller controller, int width, int height, int margin) {
     this.controller = controller;
     this.width = width;
     this.height = height;
@@ -37,8 +36,7 @@ public class CenterPanelGuestInput extends JPanel {
     setBorder(BorderFactory.createTitledBorder("Guest information"));
 
     Border border = this.getBorder();
-    Border emptyBorder =
-        BorderFactory.createEmptyBorder(margin, margin, margin, margin);
+    Border emptyBorder = BorderFactory.createEmptyBorder(margin, margin, margin, margin);
     setBorder(new CompoundBorder(border, emptyBorder));
 
     setLayout(new BorderLayout());
@@ -126,42 +124,71 @@ public class CenterPanelGuestInput extends JPanel {
     cmbCountries = new JComboBox(controller.getCountriesItems());
     cmbCountries.setSelectedIndex(0);
     pnlRight.add(cmbCountries);
-    cmbCountries.addItemListener(new ItemListener() {
-      @Override
-      public void itemStateChanged(ItemEvent e) {
-        Object obj = cmbCountries.getSelectedItem();
-        int index = cmbCountries.getSelectedIndex();
-      }
-    });
+    cmbCountries.addItemListener(
+        new ItemListener() {
+          @Override
+          public void itemStateChanged(ItemEvent e) {
+            Object obj = cmbCountries.getSelectedItem();
+            int index = cmbCountries.getSelectedIndex();
+          }
+        });
   }
 
-  public String getFirstNameText() { return txtFirstName.getText(); }
+  public String getFirstNameText() {
+    return txtFirstName.getText();
+  }
 
-  public void setFirstNameText(String text) { txtFirstName.setText(text); }
+  public void setFirstNameText(String text) {
+    txtFirstName.setText(text);
+  }
 
-  public String getLastNameText() { return txtLastName.getText(); }
+  public String getLastNameText() {
+    return txtLastName.getText();
+  }
 
-  public void setLastNameText(String text) { txtLastName.setText(text); }
+  public void setLastNameText(String text) {
+    txtLastName.setText(text);
+  }
 
-  public String getAgeText() { return txtAge.getText(); }
+  public String getAgeText() {
+    return txtAge.getText();
+  }
 
-  public void setAgeText(String text) { txtAge.setText(text); }
+  public void setAgeText(String text) {
+    txtAge.setText(text);
+  }
 
-  public String getStreetText() { return txtStreet.getText(); }
+  public String getStreetText() {
+    return txtStreet.getText();
+  }
 
-  public void setStreetText(String text) { txtStreet.setText(text); }
+  public void setStreetText(String text) {
+    txtStreet.setText(text);
+  }
 
-  public String getCityText() { return txtCity.getText(); }
+  public String getCityText() {
+    return txtCity.getText();
+  }
 
-  public void setCityText(String text) { txtCity.setText(text); }
+  public void setCityText(String text) {
+    txtCity.setText(text);
+  }
 
-  public String getZipCodeText() { return txtZipCode.getText(); }
+  public String getZipCodeText() {
+    return txtZipCode.getText();
+  }
 
-  public void setZipCodeText(String text) { txtZipCode.setText(text); }
+  public void setZipCodeText(String text) {
+    txtZipCode.setText(text);
+  }
 
-  public void setTxtNumGuest(String text) { txtNumGuest.setText(text); }
+  public void setTxtNumGuest(String text) {
+    txtNumGuest.setText(text);
+  }
 
-  public Object getCountriesItem() { return cmbCountries.getSelectedItem(); }
+  public Object getCountriesItem() {
+    return cmbCountries.getSelectedItem();
+  }
 
   public void setCountriesItem(Object item) {
     cmbCountries.setSelectedItem(item);

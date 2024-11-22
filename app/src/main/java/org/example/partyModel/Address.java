@@ -1,5 +1,13 @@
 package org.example.partyModel;
 
+/* Author: Viktor Vallmark
+ * Computer id: aq2560
+ * Program: Datateknik
+ *
+ *
+ *
+ * */
+
 public class Address {
   /*
    * Declare instance variables for street, city, zip code as String-objects
@@ -89,7 +97,7 @@ public class Address {
   public void setCity(String city) {
 
     if ((city == null) || city.isEmpty()) {
-      this.city = "Fakecity inside constructor with parameters";
+      this.city = "Fakecity";
     } else {
       this.city = city;
     }
@@ -98,7 +106,7 @@ public class Address {
   public void setStreet(String street) {
 
     if ((street == null) || street.isEmpty()) {
-      this.street = "Fakestreet inside constructor with parameters";
+      this.street = "Fakestreet";
     } else {
       this.street = street;
     }
@@ -116,7 +124,7 @@ public class Address {
   public void setZipCode(String zipCode) {
 
     if ((zipCode == null) || zipCode.isEmpty()) {
-      this.zipCode = "Fakezipcode inside constructor with parameters";
+      this.zipCode = "Fakezipcode";
     } else {
       this.zipCode = zipCode;
     }
