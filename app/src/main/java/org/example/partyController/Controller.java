@@ -19,9 +19,17 @@ import org.example.partyView.*;
 
 */
 
+/* Author: Viktor Vallmark
+ * Computer id: aq2560
+ * Program: Datateknik
+ *
+ *
+ *
+ * */
+
 public class Controller {
   MainFrame view; // the main association to the GUI from the controller-class,
-                  // GUI classes are in
+  // GUI classes are in
   // package partyView
   GuestManager register; // class GuestManager is in package partyModel
 
@@ -53,99 +61,94 @@ public class Controller {
   public void buttonPressed(ButtonType button) {
     int index; // variable used in two switch cases below
     switch (button) {
-    case Add:
-      JOptionPane.showMessageDialog(
-          null,
-          "Pressed Add"); // remove this line later when you understand how
-      // the code works
+      case Add:
 
-      /*
-       * Below are some code to get the information from the fields to the
-       * left in the GUI "Guest Information" and display that in the prompt for
-       * show. You can delete this example code later.
-       */
-      System.out.println("First name: " + view.getFirstNameText());
-      System.out.println("Last name: " + view.getLastNameText());
-      System.out.println("Age: " + view.getAgeText());
-      System.out.println("Street: " + view.getStreetText());
-      System.out.println("Zip code: " + view.getZipCodeText());
-      System.out.println("City: " + view.getCityText());
-
-      Object item = view.getCountriesItem(); // get the item chosen in the
-                                             // drop-down list of countries, the
-      // program handles this as just an Object-object
-      Countries country = (Countries)
-          item; // make it a Countries object - we know that this is supposed to
-      // be that, this type of type conversion can be risky
-      System.out.println("Country: " + country.toString());
-
-      int age = convertAge(view.getAgeText()); // get the text from interface
-                                               // for age and convert to int
-      // example code end here
-
-      /*
-       * ADD CODE HERE to add a guest to the list in the GuestManager-object
-       * referenced by instance variable register. Use a method in GuestManager
-       * that takes the parameters needed for a Guest-object to be created.
-       * Let classes GuestManager, Guest and Address handle empty Strings or
-       * null values.
-       */
-      break;
-
-    case Change:
-      JOptionPane.showMessageDialog(
-          null,
-          "Pressed Change"); // remove this line later when you understand how
-      // the code works
-
-      index = view.getListIndex(); // get the chosen index from the list of
-                                   // guest information from the GUI
-      System.out.println("Want to change guest at index: " +
-                         index); // Can be removed later
-      if (validateIndex(
-              index)) { // validateIndex is a private method in this class
-        Guest guestToChange = register.getGuestAt(
-            index); // get what is hopefully the matching Guest-object
-        // to the one chosen one in the GUI
-        if (guestToChange != null) {
-          /*
-           * ADD CODE HERE to change information in the Guest-object
-           * referenced by guestToChange.
-           * We do not know which information was changed, so we update
-           * everything. You need to use setters from class Guest for this (and
-           * in turn setters in class Address in class Guest). In the code above
-           * in the Add-choice of the switch-statement you can see how to get
-           * the information from the GUI.
-           */
-        } else {
-          JOptionPane.showMessageDialog(null,
-                                        "Did not find match in list to change");
-        }
-      }
-      break;
-
-    case Delete:
-      JOptionPane.showMessageDialog(
-          null,
-          "Pressed Delete"); // remove this line later when you understand how
-      // the code works
-      index = view.getListIndex();
-      System.out.println("When pressed delete we got index: " +
-                         index); // Can be removed later
-      if (validateIndex(index)) {
         /*
-         * ADD CODE HERE that calls the method to delete an item for the
-         * GuestManager-object register
+         * Below are some code to get the information from the fields to the
+         * left in the GUI "Guest Information" and display that in the prompt for
+         * show. You can delete this example code later.
          */
-      }
-      break;
-    case Statistics:
-      JOptionPane.showMessageDialog(
-          null,
-          "Pressed Statistics"); // remove this line later when you understand
-      // how the code works
-      JOptionPane.showMessageDialog(null, register.getStatistics());
-      break;
+
+        Object item = view.getCountriesItem();
+        // get the item chosen in the
+        // drop-down list of countries, the
+        // program handles this as just an Object-object
+        Countries country = (Countries) item;
+        // make it a Countries object - we know that this is supposed to
+        // be that, this type of type conversion can be risky
+        System.out.println("Country: " + country.toString());
+
+        int age = convertAge(view.getAgeText());
+        // get the text from interface
+        // for age and convert to int
+        // example code end here
+
+        /*
+         * ADD CODE HERE to add a guest to the list in the GuestManager-object
+         * referenced by instance variable register. Use a method in GuestManager
+         * that takes the parameters needed for a Guest-object to be created.
+         * Let classes GuestManager, Guest and Address handle empty Strings or
+         * null values.
+         */
+        String firstName = view.getFirstNameText();
+        String lastName = view.getLastNameText();
+        String street = view.getStreetText();
+        String city = view.getCityText();
+        String zipCode = view.getZipCodeText();
+
+        register.addGuest(firstName, lastName, age, street, city, zipCode, country);
+
+        break;
+
+      case Change:
+        index = view.getListIndex(); // get the chosen index from the list of
+        // guest information from the GUI
+        System.out.println("Want to change guest at index: " + index); // Can be removed later
+        if (validateIndex(index)) { // validateIndex is a private method in this class
+          Guest guestToChange =
+              register.getGuestAt(index); // get what is hopefully the matching Guest-object
+          // to the one chosen one in the GUI
+          if (guestToChange != null) {
+            /*
+             * ADD CODE HERE to change information in the Guest-object
+             * referenced by guestToChange.
+             * We do not know which information was changed, so we update
+             * everything. You need to use setters from class Guest for this (and
+             * in turn setters in class Address in class Guest). In the code above
+             * in the Add-choice of the switch-statement you can see how to get
+             * the information from the GUI.
+             */
+            Object countryItem = view.getCountriesItem();
+            Countries countri = (Countries) countryItem;
+
+            guestToChange.setAge(convertAge(view.getAgeText()));
+            guestToChange.setFirstName(view.getFirstNameText());
+            guestToChange.setLastName(view.getLastNameText());
+            guestToChange.setAddress(
+                view.getCityText(), view.getZipCodeText(), countri, view.getStreetText());
+          } else {
+            JOptionPane.showMessageDialog(null, "Did not find match in list to change");
+          }
+        }
+        break;
+
+      case Delete:
+        JOptionPane.showMessageDialog(
+            null, "Pressed Delete"); // remove this line later when you understand how
+        // the code works
+        index = view.getListIndex();
+        System.out.println("When pressed delete we got index: " + index); // Can be removed later
+        if (validateIndex(index)) {
+          /*
+           * ADD CODE HERE that calls the method to delete an item for the
+           * GuestManager-object register
+           */
+          register.deleteGuest(index);
+        }
+        break;
+      case Statistics:
+        JOptionPane.showMessageDialog(null, register.getStatistics());
+        break;
     }
 
     /*
@@ -171,18 +174,15 @@ public class Controller {
    * with information from the selected guest.
    */
   private void updateView(int index) {
-    System.out.println("Called updateView in controller with index:" +
-                       index); // Can be removed later
     if (validateIndex(index)) {
-      Guest guest = new Guest(); // Remove later when line below is used
-      // Guest guest = register.getGuestAt(index); //ADD CODE HERE by activating
+      // Guest guest = new Guest(); // Remove later when line below is used
+      Guest guest = register.getGuestAt(index);
+      // ADD CODE HERE by activating
       // this line to see what happens with a null-object and later when method
       // getGuestAt is implemented in class GuestManager
       if (guest == null) {
-        JOptionPane.showMessageDialog(null,
-                                      "The selection did not match a guest");
-        System.out.println("Given index: " + index +
-                           " did not contain a Guest-object");
+        JOptionPane.showMessageDialog(null, "The selection did not match a guest");
+        System.out.println("Given index: " + index + " did not contain a Guest-object");
         setDefaultValuesInView();
       } else {
         /*
@@ -191,14 +191,15 @@ public class Controller {
          * referenced by variable guest that returns the value of
          * the instance variable containing the first name.
          */
-        view.setFirstNameText("Fake first name");
-        view.setLastNameText("Fake last name");
-        view.setAgeText("0"); // remember to convert the datatypes since age is
-                              // an int i Guest
-        view.setStreetText("Fake street");
-        view.setZipCodeText("Fake zip code");
-        view.setCityText("Fake city");
-        view.setCountriesItem(Countries.Sverige);
+        view.setFirstNameText(guest.getFirstName());
+        view.setLastNameText(guest.getLastName());
+        view.setAgeText(
+            Integer.toString(guest.getAge())); // remember to convert the datatypes since age is
+        // an int i Guest
+        view.setStreetText(guest.getAddress().getStreet());
+        view.setZipCodeText(guest.getAddress().getZipCode());
+        view.setCityText(guest.getAddress().getCity());
+        view.setCountriesItem(guest.getAddress().getCountry());
       }
     }
   }
@@ -207,7 +208,9 @@ public class Controller {
    * Method used to create the drop-down menu of countries
    * in the GUI.
    */
-  public Countries[] getCountriesItems() { return Countries.values(); }
+  public Countries[] getCountriesItems() {
+    return Countries.values();
+  }
 
   /*
    * This method is called from the GUI when the user changes selection in the

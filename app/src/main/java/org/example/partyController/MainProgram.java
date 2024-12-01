@@ -1,9 +1,17 @@
 package org.example.partyController;
 
+import java.util.Scanner;
+
+/* Author: Viktor Vallmark
+ * Computer id: aq2560
+ * Program: Datateknik
+ *
+ *
+ *
+ * */
 public class MainProgram {
   public static void main(String[] args) {
-    int maxNbrOfGuests = 10; // Change this line later. Only using 10 as a
-                             // default value to make compilations
+    // default value to make compilations
     // possible.
     /*
      * Write code to read the number of guests to start with from the user by
@@ -12,6 +20,13 @@ public class MainProgram {
      * - Scanner and prompt
      */
 
-    Controller controller = new Controller(maxNbrOfGuests);
+    Scanner input = new Scanner(System.in);
+
+    System.out.println("Enter how many maxNbrOfGuests should be in the system: ");
+
+    int num = input.nextInt();
+
+    Controller controller = new Controller(num);
+    input.close();
   }
 }

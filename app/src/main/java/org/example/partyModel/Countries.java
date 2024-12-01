@@ -1,5 +1,13 @@
 package org.example.partyModel;
 
+/* Author: Viktor Vallmark
+ * Computer id: aq2560
+ * Program: Datateknik
+ *
+ *
+ *
+ * */
+
 public enum Countries {
   Unknown,
   Afghanistan,

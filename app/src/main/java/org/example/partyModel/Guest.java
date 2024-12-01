@@ -1,5 +1,13 @@
 package org.example.partyModel;
 
+/* Author: Viktor Vallmark
+ * Computer id: aq2560
+ * Program: Datateknik
+ *
+ *
+ *
+ * */
+
 public class Guest {
   /*
    * Declare instance variables for first name, last name as String-objects,
@@ -85,7 +93,6 @@ public class Guest {
       String firstName,
       String lastName,
       int age,
-      Address address,
       String street,
       String city,
       String zipCode,
@@ -115,7 +122,13 @@ public class Guest {
       this.age = age;
     }
 
-    if (address == null) {
+    if (street.isEmpty()
+        || street == null
+        || city.isEmpty()
+        || city == null
+        || zipCode.isEmpty()
+        || zipCode == null
+        || country == null) {
       this.address = new Address();
     } else {
       this.address = new Address(street, city, zipCode, country);
@@ -130,7 +143,6 @@ public class Guest {
    * Remember to check parameters in set-methods with the same
    * rules as in the constructor above.
    */
-  // TODO: Fix the setters
   public int getAge() {
     return age;
   }
@@ -148,19 +160,39 @@ public class Guest {
   }
 
   public void setAge(int age) {
-    this.age = age;
+
+    if (age >= 0) {
+
+      this.age = age;
+
+    } else {
+      System.out.println("Please enter a positive age");
+    }
   }
 
-  public void setAddress(Address address) {
-    this.address = address;
+  public void setAddress(String city, String zipCode, Countries country, String street) {
+    this.address = new Address(street, city, zipCode, country);
   }
 
   public void setLastName(String lastName) {
-    this.lastName = lastName;
+    if (lastName.isEmpty() || lastName == null) {
+
+      this.lastName = "FakeLastName because null or empty";
+
+    } else {
+      this.lastName = lastName;
+    }
   }
 
   public void setFirstName(String firstName) {
-    this.firstName = firstName;
+    if (firstName.isEmpty() || firstName == null) {
+
+      this.firstName = "FakeFirstName because null or empty";
+
+    } else {
+
+      this.firstName = firstName;
+    }
   }
 
   /*
@@ -173,7 +205,14 @@ public class Guest {
 
   @Override
   public String toString() {
-    // TODO Auto-generated method stub
-    return super.toString();
+
+    return "Guest: "
+        + getFirstName()
+        + " "
+        + getLastName()
+        + " age: "
+        + getAge()
+        + " address: "
+        + getAddress().toString();
   }
 }
