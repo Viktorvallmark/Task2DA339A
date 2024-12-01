@@ -21,12 +21,28 @@ public class MainProgram {
      */
 
     Scanner input = new Scanner(System.in);
+<<<<<<< HEAD
 
     System.out.println("Enter how many maxNbrOfGuests should be in the system: ");
 
     int num = input.nextInt();
 
     Controller controller = new Controller(num);
+=======
+    int num;
+    System.out.println("Enter how many maxNbrOfGuests should be in the system: ");
+    if (input.hasNextInt()) {
+
+      num = input.nextInt();
+    } else {
+
+      num = 1;
+    }
+
+    Controller controller = new Controller(num);
+
+    controller.toString();
+>>>>>>> 2c0f4753d665123d8bbea73cf1ac4326839428ff
     input.close();
   }
 }

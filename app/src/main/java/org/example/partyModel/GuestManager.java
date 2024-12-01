@@ -27,6 +27,7 @@ public class GuestManager {
    * If max number of guests is not larger than 0 ask the user to give a new
    * value until you get a value that is larger than 0.
    */
+
   public GuestManager(int maxNbrOfGuests) {
 
     if (maxNbrOfGuests > 0) {
@@ -34,6 +35,10 @@ public class GuestManager {
       guestList = new Guest[maxNbrOfGuests];
 
     } else {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2c0f4753d665123d8bbea73cf1ac4326839428ff
     }
   }
 
@@ -141,7 +146,15 @@ public class GuestManager {
 
     int len = guestList.length + 10;
     Guest[] newArr = new Guest[len];
+<<<<<<< HEAD
     newArr = this.guestList;
+=======
+
+    for (int i = 0; i < guestList.length; i++) {
+      newArr[i] = guestList[i];
+    }
+
+>>>>>>> 2c0f4753d665123d8bbea73cf1ac4326839428ff
     this.guestList = newArr;
   }
 
@@ -182,6 +195,11 @@ public class GuestManager {
     for (Guest guest : guestList) {
       if (guest != null) {
         count++;
+<<<<<<< HEAD
+=======
+      } else {
+        System.out.println("Something went wrong while checking length of guestList");
+>>>>>>> 2c0f4753d665123d8bbea73cf1ac4326839428ff
       }
     }
     String[] infoStrings = new String[count];

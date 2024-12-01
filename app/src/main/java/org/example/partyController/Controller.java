@@ -125,7 +125,11 @@ public class Controller {
             guestToChange.setFirstName(view.getFirstNameText());
             guestToChange.setLastName(view.getLastNameText());
             guestToChange.setAddress(
+<<<<<<< HEAD
                 view.getCityText(), view.getZipCodeText(), countri, view.getStreetText());
+=======
+                view.getCityText(), view.getStreetText(), view.getZipCodeText(), countri);
+>>>>>>> 2c0f4753d665123d8bbea73cf1ac4326839428ff
           } else {
             JOptionPane.showMessageDialog(null, "Did not find match in list to change");
           }

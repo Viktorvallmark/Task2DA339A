@@ -28,5 +28,5 @@ java { toolchain { languageVersion = JavaLanguageVersion.of(17) } }
 
 application {
     // Define the main class for the application.
-    mainClass = "org.example.App"
+    mainClass = "org.example.partyController.MainProgram"
 }
