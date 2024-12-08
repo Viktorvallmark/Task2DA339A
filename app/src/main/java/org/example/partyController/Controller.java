@@ -105,8 +105,7 @@ public class Controller {
         // guest information from the GUI
         System.out.println("Want to change guest at index: " + index); // Can be removed later
         if (validateIndex(index)) { // validateIndex is a private method in this class
-          Guest guestToChange =
-              register.getGuestAt(index); // get what is hopefully the matching Guest-object
+          Guest guestToChange = register.getGuestAt(index); // get what is hopefully the matching Guest-object
           // to the one chosen one in the GUI
           if (guestToChange != null) {
             /*
@@ -125,11 +124,7 @@ public class Controller {
             guestToChange.setFirstName(view.getFirstNameText());
             guestToChange.setLastName(view.getLastNameText());
             guestToChange.setAddress(
-<<<<<<< HEAD
-                view.getCityText(), view.getZipCodeText(), countri, view.getStreetText());
-=======
                 view.getCityText(), view.getStreetText(), view.getZipCodeText(), countri);
->>>>>>> 2c0f4753d665123d8bbea73cf1ac4326839428ff
           } else {
             JOptionPane.showMessageDialog(null, "Did not find match in list to change");
           }

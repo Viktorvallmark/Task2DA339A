@@ -12,15 +12,13 @@ public class EastPanelGuestList extends JPanel {
   private JList<String> list;
   private Controller controller;
 
-  public EastPanelGuestList(Controller controller, int width, int height,
-                            int margin) {
+  public EastPanelGuestList(Controller controller, int width, int height, int margin) {
     this.controller = controller;
 
     setBorder(BorderFactory.createTitledBorder("Guest Register"));
 
     Border border = this.getBorder();
-    Border emptyBorder =
-        BorderFactory.createEmptyBorder(margin, margin, margin, margin);
+    Border emptyBorder = BorderFactory.createEmptyBorder(margin, margin, margin, margin);
     setBorder(new CompoundBorder(border, emptyBorder));
 
     list = new JList<String>(); // data has type Object[]
@@ -39,20 +37,23 @@ public class EastPanelGuestList extends JPanel {
     add(s);
   }
 
-  public int getListIndex() { return list.getSelectedIndex(); }
+  public int getListIndex() {
+    return list.getSelectedIndex();
+  }
 
   public void updateGuestList(String[] stringList) {
     list.setListData(stringList);
   }
 
   public void addListener() {
-    list.addListSelectionListener(new ListSelectionListener() {
-      public void valueChanged(ListSelectionEvent evt) {
-        int index = list.getSelectedIndex();
-        if (index > -1) {
-          controller.guestListIndexChanged(index);
-        }
-      }
-    });
+    list.addListSelectionListener(
+        new ListSelectionListener() {
+          public void valueChanged(ListSelectionEvent evt) {
+            int index = list.getSelectedIndex();
+            if (index > -1) {
+              controller.guestListIndexChanged(index);
+            }
+          }
+        });
   }
 }

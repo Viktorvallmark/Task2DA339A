@@ -170,10 +170,10 @@ public class Guest {
     }
   }
 
-<<<<<<< HEAD
   public void setAddress(String city, String zipCode, Countries country, String street) {
     this.address = new Address(street, city, zipCode, country);
-=======
+  }
+
   public void setAddress(String city, String street, String zipCode, Countries country) {
 
     if (country == null) {
@@ -199,7 +199,6 @@ public class Guest {
     } else {
       this.address.setZipCode(zipCode);
     }
->>>>>>> 2c0f4753d665123d8bbea73cf1ac4326839428ff
   }
 
   public void setLastName(String lastName) {

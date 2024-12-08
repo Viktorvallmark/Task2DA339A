@@ -35,10 +35,9 @@ public class GuestManager {
       guestList = new Guest[maxNbrOfGuests];
 
     } else {
-<<<<<<< HEAD
-=======
-
->>>>>>> 2c0f4753d665123d8bbea73cf1ac4326839428ff
+      System.out.println(
+          "Entered max number of guests to below 0, setting starting guestlist to length 1");
+      guestList = new Guest[1];
     }
   }
 
@@ -146,15 +145,12 @@ public class GuestManager {
 
     int len = guestList.length + 10;
     Guest[] newArr = new Guest[len];
-<<<<<<< HEAD
     newArr = this.guestList;
-=======
 
     for (int i = 0; i < guestList.length; i++) {
       newArr[i] = guestList[i];
     }
 
->>>>>>> 2c0f4753d665123d8bbea73cf1ac4326839428ff
     this.guestList = newArr;
   }
 
@@ -195,11 +191,8 @@ public class GuestManager {
     for (Guest guest : guestList) {
       if (guest != null) {
         count++;
-<<<<<<< HEAD
-=======
       } else {
         System.out.println("Something went wrong while checking length of guestList");
->>>>>>> 2c0f4753d665123d8bbea73cf1ac4326839428ff
       }
     }
     String[] infoStrings = new String[count];
